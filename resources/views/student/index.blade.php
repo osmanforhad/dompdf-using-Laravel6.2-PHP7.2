@@ -26,8 +26,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($students < 1)) <tr>
-                            <td>No students faund</td>
+                        @if(count($students)<1) <tr>
+                            <td colspan="3">
+                                <h4 align="center">No students faund</h4>
+                            </td>
                             </tr>
                             @else
                             @foreach($students as $student)

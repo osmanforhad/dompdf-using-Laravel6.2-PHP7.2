@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('htmltopdfview', array('as' => 'htmltopdfview', 'uses' => 'ProductController@htmltopdfview'));
+Route::resource('students', 'StudentController');
