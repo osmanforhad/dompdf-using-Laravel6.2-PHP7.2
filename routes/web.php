@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('students', 'StudentController');
+
+Route::get('students/pdfexport/{id}', 'StudentController@pdfexport');

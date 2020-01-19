@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -83,4 +84,14 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function pdfexport($id)
+    {
+        $student = Student::find($id);
+        $pdf = PDF::loadView('student.pdf', ['student' => $student])->setPaper('a4', 'portrait');
+
+        $fileName = $student->name;
+
+        return $pdf->stream($fileName . '.pdf');
+    } //end of the pdfexport method
 }

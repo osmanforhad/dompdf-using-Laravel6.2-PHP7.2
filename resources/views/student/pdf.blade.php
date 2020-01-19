@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Students</title>
+    <title>{{$student->name}}</title>
 </head>
 
 <body>
@@ -20,31 +20,15 @@
                 <table class="table table-borderd">
                     <thead>
                         <tr>
-                            <th style="width:50px;">#</th>
                             <th>Name</th>
                             <th>Amount</th>
-                            <th style="width:92px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($students)<1) <tr>
-                            <td colspan="3">
-                                <h4 align="center">No students faund</h4>
-                            </td>
-                            </tr>
-                            @else
-                            @foreach($students as $student)
-                            <tr>
-                                <td>{{$student->id}}</td>
-                                <td>{{$student->name}}</td>
-                                <td>{{$student->amount .' bdt'}}</td>
-                                <td>
-                                    <a href="{{url('students/pdfexport/' . $student->id)}}"
-                                        class="btn btn-primary btn-xs" target="_blank">PDF Export</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                            @endif
+                        <tr>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->amount .' bdt'}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
